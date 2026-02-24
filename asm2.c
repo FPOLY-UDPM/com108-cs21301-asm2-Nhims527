@@ -18,16 +18,27 @@ int BCNN(int a, int b){
 }
 
 void chucNang1(){
-    int n;
+    int n, i, flag = 1;
+
     printf("Nhap so nguyen: ");
     scanf("%d",&n);
 
-    if(n % 2 == 0) printf("So chan\n");
-    else printf("So le\n");
+    if(n < 2){
+        printf("Khong phai so nguyen to\n");
+        return;
+    }
 
-    if(n > 0) printf("So duong\n");
-    else if(n < 0) printf("So am\n");
-    else printf("So 0\n");
+    for(i = 2; i <= sqrt(n); i++){
+        if(n % i == 0){
+            flag = 0;
+            break;
+        }
+    }
+
+    if(flag == 1)
+        printf("La so nguyen to\n");
+    else
+        printf("Khong phai so nguyen to\n");
 }
 
 void chucNang2(){
